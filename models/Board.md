@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [FEATURE: Boards](#feature-boards)
   - [description and user stories](#description-and-user-stories)
   - [class Board](#class-board)
@@ -26,9 +25,8 @@
 ### columns
 
 ```ruby
-  t.integer :category_id
-  t.text :description
   t.string :name
+  t.text :description
 ```
 
 ### migration
