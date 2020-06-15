@@ -39,9 +39,10 @@ $ rails g resource Board name:string description:text
 
 ```ruby
 class Board
-  has_many :rcategories
   has_many :board_resources
   has_many :boards, through: :board_resources
+  has_many :board_tags
+  has_many :tags, through: :board_tags
 end
 ```
 
@@ -50,8 +51,9 @@ end
 ```ruby
 class BoardSerializer < ActiveModel::Serializer
   attributes :id, :name, :description
-  has_many :categories
   has_many :board_resources
-  has_many :resources, through: :board_resources
+  has_many :boards, through: :board_resources
+  has_many :board_tags
+  has_many :tags, through: :board_tags
 end
 ```
