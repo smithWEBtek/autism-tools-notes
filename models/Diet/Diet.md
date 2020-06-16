@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [FEATURE: Diets](#feature-diets)
   - [description and user stories](#description-and-user-stories)
   - [class Diet](#class-diet)
@@ -43,8 +42,7 @@ $ rails g resource Diet name:string description:text instructions:text
 
 ```ruby
 class Diet
-  has_many :diet_meals
-  has_many :meals, through: :diets
+  has_many :meals
 end
 ```
 
