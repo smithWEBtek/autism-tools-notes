@@ -2,9 +2,9 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [FEATURE: Diets](#feature-diets)
+- [DietMeal](#dietmeal)
   - [description and user stories](#description-and-user-stories)
-  - [class Diet](#class-diet)
+  - [class DietMeal](#class-dietmeal)
     - [columns](#columns)
     - [migration](#migration)
     - [ar relationships](#ar-relationships)
@@ -12,38 +12,34 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# FEATURE: Diets
+# DietMeal
 
 ## description and user stories
 
-- a Diet has
-- a name, description, instructions and meals
-- a display of intended meal
-- a meal form to record actual eaten
-- shopping list
-- do's and don'ts in the instructions
+- a DietMeal is a single row in the db with a diet_it and a meal_id
+- so a meal could belong to many diets via this join table
 
-## class Diet
+## class DietMeal
 
 ### columns
 
 ```ruby
-t.string :name
-t.text :description
-t.text :instructions
+t.integer :diet_id
+t.integer :meal_id
 ```
 
 ### migration
 
 ```ruby
-$ rails g resource Diet name:string description:text instructions:text
+$ rails g resource DietMeal diet_id:integer meal_id:integer
 ```
 
 ### ar relationships
 
 ```ruby
-class Diet
-  has_many :meals
+class DietMeal
+  belongs_to :diet
+  belongs_to :meal
 end
 ```
 
@@ -51,8 +47,8 @@ end
 
 ```ruby
 class DietSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :instructions
-  has_many :diet_meals
-  has_many :meals, through: :diets
+  attributes :id, :diet, :meal
+  belongs_to :diet
+  belongs_to :meal
 end
 ```
