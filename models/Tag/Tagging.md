@@ -3,13 +3,15 @@
 ### columns
 
 ```ruby
-t.string :name
+t.integer :tag_id
 t.integer :board_id
+t.integer :resource_id
 t.integer :diet_id
+t.integer :meal_id
+t.integer :recipe_id
 t.integer :document_id
 t.integer :medication_id
 t.integer :playlist_id
-t.integer :resource_id
 t.integer :schedule_id
 t.integer :treatment_id
 t.integer :user_id
@@ -18,7 +20,7 @@ t.integer :user_id
 ### migration
 
 ```
-$ rails g resource resource name:string description:text
+$ rails g resource Tagging tag_id:integer board_id:integer resource_id:integer diet_id:integer meal_id:integer recipe_id:integer document_id:integer medication_id:integer playlist_id:integer schedule_id:integer treatment_id:integer user_id:integer
 ```
 
 ### ar relationships
@@ -41,7 +43,7 @@ belongs_to :user, optional: true
 
 ```ruby
 class TaggingSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description
+  attributes :id, :name
   belongs_to :board, optional: true
   belongs_to :resource, optional: true
   belongs_to :diet, optional: true
