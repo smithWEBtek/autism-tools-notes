@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [class Meal](#class-meal)
+  - [columns](#columns)
+  - [migration](#migration)
+  - [ar relationships](#ar-relationships)
+  - [serializer](#serializer)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## class Meal
 
 ### columns
@@ -11,14 +23,15 @@ t.text :description
 ### migration
 
 ```ruby
-$ rails g resource Meal name:string description:text diet_id:integer
+$ rails g resource Meal name:string description:text
 ```
 
 ### ar relationships
 
 ```ruby
 class Meal
-  belongs_to :diet
+  has_many :diet_meals
+  has_many :diets, through: :diet_meals
 end
 ```
 
