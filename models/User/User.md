@@ -50,3 +50,5 @@ rails g resource User first_name:text last_name:text middle_name:text nick_name:
 ### ar relationships
 
 ### serializer
+
+attributes :id, :first_name, :last_name, :middle_name, :nick_name, :email, :phone, :address1, :address2, :address3, :address_city, :address_state, :address_zip, :age, :weight, :height, :eyes_color, :hair_color, :characteristics, :diagnosis
