@@ -9,6 +9,7 @@
 - [FEATURE: Schedule](#feature-schedule)
 - [FEATURE: Docs](#feature-docs)
 - [FEATURE: User](#feature-user)
+  - [links](#links)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -25,3 +26,7 @@
 # FEATURE: Docs
 
 # FEATURE: User
+
+## links
+
+[Pillbox for developers](https://hhs.github.io/pillbox/)
