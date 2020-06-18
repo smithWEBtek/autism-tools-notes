@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [class RegimenStep](#class-regimenstep)
   - [columns](#columns)
   - [migration](#migration)
@@ -35,7 +34,7 @@ $ rails g resource RegimenStep regimen_id:integer step_id:integer
 ### serializer
 
 ```ruby
-class DrugSerializer < ActiveModel::Serializer
+class RegimenStepSerializer < ActiveModel::Serializer
   attributes :id, :regimen, :step
   belongs_to :regimen
   belongs_to :step

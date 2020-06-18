@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [class Step](#class-step)
   - [columns](#columns)
   - [migration](#migration)
@@ -17,6 +16,7 @@
 ```ruby
 t.string :name
 t.text :description
+t.text :instructions
 t.integer :step_number
 t.integer :drug_id, default: nil
 t.integer :supplement_id, default: nil
@@ -29,7 +29,7 @@ t.datetime :dosage_end
 ### migration
 
 ```
-$ rails g resource Step name:string description:text regimen_step_number:integer drug_id:integer supplement_id:integer dosage_qty:integer dosage_description:text dosage_start:datetime dosage_end:datetime
+$ rails g resource Step name:string description:text instructions:text regimen_step_number:integer drug_id:integer supplement_id:integer dosage_qty:integer dosage_description:text dosage_start:datetime dosage_end:datetime
 ```
 
 ### ar relationships
@@ -46,8 +46,8 @@ $ rails g resource Step name:string description:text regimen_step_number:integer
 ### serializer
 
 ```ruby
-class DrugSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :regimen_step_number, :drug_id, :supplement_id, :dosage_qty, :dosage_description, :dosage_start, :dosage_end
+class StepSerializer < ActiveModel::Serializer
+  attributes :id, :name, :description, :instructions, :regimen_step_number, :drug_id, :supplement_id, :dosage_qty, :dosage_description, :dosage_start, :dosage_end
   has_many :regimen_steps
   has_many :regimens, through: :regimen_steps
   belongs_to :drug, optional: true
