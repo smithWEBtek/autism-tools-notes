@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [class Meal](#class-meal)
   - [columns](#columns)
@@ -32,6 +33,8 @@ $ rails g resource Meal name:string description:text
 class Meal
   has_many :diet_meals
   has_many :diets, through: :diet_meals
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :meal
 end
 ```
 
@@ -39,7 +42,9 @@ end
 
 ```ruby
 class MealSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description
-  belongs_to :diet
+  has_many :diet_meals
+  has_many :diets, through: :diet_meals
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :meal
 end
 ```
