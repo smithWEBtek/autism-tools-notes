@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [FEATURE: Docs](#feature-docs)
   - [description and user stories](#description-and-user-stories)
     - [columns](#columns)
@@ -50,8 +49,9 @@ rails g resource Document name:string description:text instructions:text format:
 ### ar relationships
 
 ```ruby
-belongs_to :user
-has_many :tags
+  belongs_to :user
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :document
 ```
 
 ### serializer
@@ -59,8 +59,8 @@ has_many :tags
 ```ruby
 class DocumentSerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :instructions, :format, :location, :user
-
   belongs_to :user
-  has_many :tags
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :document
 end
 ```

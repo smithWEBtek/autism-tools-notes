@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [FEATURE: User](#feature-user)
   - [description and user stories](#description-and-user-stories)
     - [columns](#columns)
@@ -48,6 +47,15 @@ rails g resource User first_name:text last_name:text middle_name:text nick_name:
 
 ### ar relationships
 
+```ruby
+  has_many :taggings
+  has_many :tags, through: :taggings
+```
+
 ### serializer
 
-attributes :id, :first_name, :last_name, :middle_name, :nick_name, :email, :phone, :address1, :address2, :address3, :address_city, :address_state, :address_zip, :age, :weight, :height, :eyes_color, :hair_color, :characteristics, :diagnosis
+```ruby
+  attributes :id, :first_name, :last_name, :middle_name, :nick_name, :email, :phone, :address1, :address2, :address3, :address_city, :address_state, :address_zip, :age, :weight, :height, :eyes_color, :hair_color, :characteristics, :diagnosis
+  has_many :taggings
+  has_many :tags, through: :taggings
+```

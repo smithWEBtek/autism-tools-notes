@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [class Resource](#class-resource)
   - [columns](#columns)
   - [migration](#migration)
@@ -31,8 +30,10 @@ format:string location:string
 ### ar relationships
 
 ```ruby
-has_many :board_resources
-has_many :boards, through: :board_resources
+  has_many :board_resources
+  has_many :boards, through: :board_resources
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :resource
 ```
 
 ### serializer
@@ -42,5 +43,7 @@ class ResourceSerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :format, :location
   has_many :board_resources
   has_many :boards, through: :board_resources
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :resource
 end
 ```

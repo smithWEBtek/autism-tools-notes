@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [FEATURE: Playlist](#feature-playlist)
   - [description and user stories](#description-and-user-stories)
@@ -26,9 +27,8 @@
 ### columns
 
 ```ruby
-  t.integer :category_id
-  t.text :description
   t.string :name
+  t.text :description
 ```
 
 ### migration
@@ -41,10 +41,10 @@ $ rails g resource playlist name:string description:text
 
 ```ruby
 class Playlist
-  has_many :resource_categories
-  has_many :categories, through: :resource_categories
   has_many :playlist_resources
-  has_many :playlists, through: :playlist_resources
+  has_many :resource, through: :playlist_resources
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :playlist
 end
 ```
 
@@ -53,9 +53,9 @@ end
 ```ruby
 class playlistSerializer < ActiveModel::Serializer
   attributes :id, :name, :description
-  has_many :resource_categories
-  has_many :categories, through: :resource_categories
   has_many :playlist_resources
-  has_many :playlists, through: :playlist_resources
+  has_many :resources, through: :playlist_resources
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :playlist
 end
 ```

@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [FEATURE: Diets](#feature-diets)
   - [description and user stories](#description-and-user-stories)
   - [class Diet](#class-diet)
@@ -43,7 +42,10 @@ $ rails g resource Diet name:string description:text instructions:text
 
 ```ruby
 class Diet
-  has_many :meals
+  has_many :diet_meals
+  has_many :meals, through: :diet_meals
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :diet
 end
 ```
 
@@ -53,6 +55,8 @@ end
 class DietSerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :instructions
   has_many :diet_meals
-  has_many :meals, through: :diets
+  has_many :meals, through: :diet_meals
+  has_many :taggings
+  has_many :tags, through: :taggings, source: :diet
 end
 ```
