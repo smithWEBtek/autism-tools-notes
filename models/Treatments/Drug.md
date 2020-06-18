@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [class Recipe](#class-recipe)
+- [class Drug](#class-drug)
   - [columns](#columns)
   - [migration](#migration)
   - [ar relationships](#ar-relationships)
@@ -10,33 +10,36 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## class Recipe
+## class Drug
 
 ### columns
 
 ```ruby
 t.string :name
 t.text :description
-t.text :instructions
 ```
 
 ### migration
 
-```ruby
-$ rails g resource Recipe name:string description:text instructions:text
+```
+$ rails g resource Drug name:string description:text
 ```
 
 ### ar relationships
 
 ```ruby
-class Recipe
-end
+  has_many :dosages
+  has_many :taggings
+  has_many :tags, through: :taggings
 ```
 
 ### serializer
 
 ```ruby
-class RecipeSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :instructions
+class DrugSerializer < ActiveModel::Serializer
+  attributes :id, :name, :description
+  has_many :dosages
+  has_many :taggings
+  has_many :tags, through: :taggings
 end
 ```
