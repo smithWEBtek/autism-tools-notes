@@ -1,7 +1,8 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [class Treatment](#class-supplement)
+
+- [class Treatment](#class-treatment)
   - [columns](#columns)
   - [migration](#migration)
   - [ar relationships](#ar-relationships)

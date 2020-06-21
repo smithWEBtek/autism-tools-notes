@@ -1,8 +1,8 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [FEATURE: Schedule](#feature-schedule)
+
+- [FEATURE: Event](#feature-event)
   - [description and user stories](#description-and-user-stories)
     - [columns](#columns)
     - [migration](#migration)
@@ -11,19 +11,34 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# FEATURE: Schedule
+# FEATURE: Event
 
 ## description and user stories
 
+- EventUser model joins a user with an event.
+- User can have many Events
+- Event has_many users
+
 ### columns
+
+t.integer :event_id
+t.integer :user_id
 
 ### migration
 
+\$ rails g resource EventUser event_id:integer user_id:integer
+
 ### ar relationships
+
+```ruby
+belongs_to :event
+belongs_to :user
+```
 
 ### serializer
 
-stories
-
-- Includes Meds, Diet, PictureBoard, Playlists
-- Activities of Daily Living (ADL)
+```ruby
+attributes :id, :event_id, :user_id
+belongs_to :event
+belongs_to :user
+```

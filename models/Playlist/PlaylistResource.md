@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [class PlaylistResource](#class-playlistresource)
+  - [columns](#columns)
+  - [migration](#migration)
+  - [ar relationships](#ar-relationships)
+  - [serializer](#serializer)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## class PlaylistResource
 
 ### columns
@@ -17,21 +29,16 @@ $ rails g resource PlaylistResource playlist_id:integer resource_id:integer
 
 ```ruby
 class PlaylistResource
-  has_many :playlist_resources
-  has_many :playlists, through: :playlist_resources
-  has_many :taggings
-  has_many :tags, through: :taggings, source: :playlist
+  belongs_to :playlist
+  belongs_to :resource
 end
 ```
 
 ### serializer
 
 ```ruby
-class playlistSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description
-  has_many :playlist_resources
-  has_many :playlists, through: :playlist_resources
-  has_many :taggings
-  has_many :tags, through: :taggings, source: :playlist
+class PlaylistResourceSerializer < ActiveModel::Serializer
+  belongs_to :playlist
+  belongs_to :resource
 end
 ```
