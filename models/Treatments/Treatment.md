@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [class Treatment](#class-treatment)
   - [columns](#columns)
   - [migration](#migration)
@@ -23,7 +22,7 @@ t.text :instructions
 ### migration
 
 ```
-$ rails g resource Treatment name:string description:text instructions:text
+$ rails g resource Treatment name:string description:text
 ```
 
 ### ar relationships
@@ -38,7 +37,7 @@ $ rails g resource Treatment name:string description:text instructions:text
 
 ```ruby
 class TreatmentSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :instructions
+  attributes :id, :name, :description
   has_many :regimens
   has_many :taggings
   has_many :tags, through: :taggings
