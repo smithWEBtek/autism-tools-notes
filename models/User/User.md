@@ -18,7 +18,11 @@ data model
 ## description and user stories
 
 - the user model holds all people
-- a user has a user_type, in relation to the main user: the client_user
+- user_types
+  - client
+  - support
+  - guardian
+  - admin
 
 ### columns
 
