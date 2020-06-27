@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [autism-tools.org](#autism-toolsorg)
 - [admin](#admin)
@@ -25,19 +26,26 @@ layout
 
 # autism-tools.org
 
-# admin
+## admin
 
-## users | calendars | diets | treatments | docs| resources | playlists | boards | login
-
----
-
-# client
-
-## profile | calendar | diet | treatment | doc | resource | playlist | board | login
+### login-logout | user | calendar | diet | treatment | doc | resource | playlist | board
 
 ---
 
-## profile
+## client
+
+### user | calendar | diet | treatment | doc | resource | playlist | board | login
+
+---
+
+### login | logout
+
+- login-button
+- logout-button
+
+---
+
+### user
 
 - user-crud
 - user-calendar-crud
@@ -52,45 +60,64 @@ layout
 
 ---
 
-## calendar
+### calendar
 
-### today | week | month | quarter | year
-
-### today-crud
-
-### week-crud
-
-### month-crud
-
-### quarter-crud
-
-### year-crud
+- today | week | month | quarter | year | rules
+- today-crud
+- week-crud
+- month-crud
+- quarter-crud
+- year-crud
+- calendar-rules
+  - shower every night
+  - no more than 4hrs w/o oppty to lay down quietly
+  - if an event is promised, the event promise must be fulfilled or addressed
 
 ---
 
 ## diet
 
-- - show-crud
-- me- user-calendar
-- user-diets-index
-  - user-diet-crud
-- user-treatments-indexals-index
-  - - show-crud - user-treatment-crud
-  - - show-crud - user-treatment-crud
-  - - show-crud - user-treatment-crud
-- reci- user-calendar
-- user-diets-index
-  - user-diet-crud
-- user-treatments-indexpes-index
-  - re- show-crud - user-treatment-crud
-  - re- show-crud - user-treatment-crud
-  - re- show-crud - user-treatment-crud
-- user-calendar
-- user-diets-index
-  - user-diet-crud
-- user-treatments-index
-  - user-treatment-crud
-  - user-treatment-crud
-  - user-treatment-crud
+- diet-index
+- diet-crud
+
+---
+
+## treatment
+
+- treatment-index
+- treatment-crud
+
+---
+
+## doc
+
+- doc-index
+- doc-crud-scan-upload-link
+- doc-import-export
+- doc-reports
+
+---
+
+## resource
+
+- resource-index
+- resource-crud-scan-upload-link
+- resource-reports
+
+---
+
+## playlist
+
+- playlist-index
+- playlist-crud
+- playlist-export
+
+---
+
+## board
+
+- board-index
+- board-crud
+- board-export
 
 ---
